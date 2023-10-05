@@ -159,3 +159,15 @@ func (n Node) String() string {
 	}
 	return "ERROR"
 }
+
+func GetIntegerNode(value string) (*Node, error) {
+	intValue, err := strconv.ParseInt(value, 10, 64)
+	if err != nil { return nil, err }
+	return &Node{Integer, intValue}, nil
+}
+
+func GetFloatNode(value string) (*Node, error) {
+	floatValue, err := strconv.ParseFloat(value, 64)
+	if err != nil { return nil, err }
+	return &Node{Float, floatValue}, nil
+}
